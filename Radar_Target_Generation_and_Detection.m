@@ -77,24 +77,26 @@ for i=1:length(t)
     
 end
 
-%% RANGE MEASUREMENT
-
+%%
+%signal_fft = fft(Mix);
 
  % *%TODO* :
 %reshape the vector into Nr*Nd array. Nr and Nd here would also define the size of
 %Range and Doppler FFT respectively.
-
+signal_fft = reshape(Mix, [Nr, Nd]);
  % *%TODO* :
 %run the FFT on the beat signal along the range bins dimension (Nr) and
 %normalize.
-
+signal_fft = fft(signal_fft, Nr);
  % *%TODO* :
 % Take the absolute value of FFT output
+l = length(signal_fft);
+signal_fft = abs(signal_fft/l);
 
  % *%TODO* :
 % Output of FFT is double sided signal, but we are interested in only one side of the spectrum.
 % Hence we throw out half of the samples.
-
+signal_fft = signal_fft(1:l/2-1);
 
 %plotting the range
 figure ('Name','Range from First FFT')
@@ -102,9 +104,12 @@ subplot(2,1,1)
 
  % *%TODO* :
  % plot FFT output 
+plot(signal_fft, 'linewidth',2.5, 'color', 'r');
+xlabel('Range(m)')
+ylabel('Signal Strength')
+title('Range estimation from FFT');
 
- 
-axis ([0 200 0 1]);
+axis ([0 200 0 0.5]);
 
 
 
@@ -140,21 +145,23 @@ figure,surf(doppler_axis,range_axis,RDM);
 %% CFAR implementation
 
 %Slide Window through the complete Range Doppler Map
-
+[R,D] = size(RDM)
 % *%TODO* :
 %Select the number of Training Cells in both the dimensions.
-
+Tr = 8;
+Td = 4;
 % *%TODO* :
 %Select the number of Guard Cells in both dimensions around the Cell under 
 %test (CUT) for accurate estimation
-
+Gr = 4;
+Gd = 2;
 % *%TODO* :
 % offset the threshold by SNR value in dB
+offset = 1.4;
 
 % *%TODO* :
 %Create a vector to store noise_level for each iteration on training cells
-noise_level = zeros(1,1);
-
+noise_level = zeros(size(RDM));
 
 % *%TODO* :
 %design a loop such that it slides the CUT across range doppler map by
