@@ -3,18 +3,20 @@ clc;
 
 %% Radar Specifications 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Frequency of operation = 77GHz
-% Max Range = 200m
-% Range Resolution = 1 m
-% Max Velocity = 100 m/s
+fc = 77e9;
+rangeMax = 200;
+rangeResolution = 1;
+velocityMax = 100;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%speed of light = 3e8
+c = 3e8;
+
 %% User Defined Range and Velocity of target
 % *%TODO* :
 % define the target's initial position and velocity. Note : Velocity
 % remains contant
- 
+targetRange = 100;
+targetVelocity = -20;
 
 
 %% FMCW Waveform Generation
@@ -23,10 +25,10 @@ clc;
 %Design the FMCW waveform by giving the specs of each of its parameters.
 % Calculate the Bandwidth (B), Chirp Time (Tchirp) and Slope (slope) of the FMCW
 % chirp using the requirements above.
-
-
-%Operating carrier frequency of Radar 
-fc= 77e9;             %carrier freq
+Bsweep = c/(2*rangeResolution);
+chirpFactor = 5.5;
+Tchirp = chirpFactor*2*rangeMax/c;
+slope = Bsweep/Tchirp;
 
                                                           
 %The number of chirps in one sequence. Its ideal to have 2^ value for the ease of running the FFT
