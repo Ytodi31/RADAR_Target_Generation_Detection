@@ -21,13 +21,14 @@ The RADAR system used has the following specifications:
 
 ## Target Generation and Detection
 
-The transmitted signal is given by : \
+The transmitted signal is given by :
 <p align="center">
-<img src="data/transmitted_signal.png" width="100" height="40" />
+<img src="data/transmitted_signal.PNG" width="100" height="40" />
 </p>
-The received signal is same as the transmitted signal with a time delay and is given by : \
+The received signal is same as the transmitted signal with a time delay and is given by :
+
 <p align="center">
-<img src="data/received_signal.png" width="100" height="40" />
+<img src="data/received_signal.PNG" width="100" height="40" />
 </p>
 
 ### Target Specification
@@ -42,14 +43,14 @@ For FFT processing, the following steps were used :
 
 ### Output
 <p align="center">
-  <img src="data/fft_output.png" width="300" height="100" />
+  <img src="data/fft_output.png" width="400" height="250" />
 </p>
 
 From the output, we can see that the target is detected at a range of 100m which is same as the target specification location.
 
 ### Range Doppler Map
 <p align="center">
-  <img src="data/range_doppler.png" width="300" height="200" />
+  <img src="data/range_doppler.png" width="500" height="300" />
 </p>
 
 ## 2D CFAR Implementation
@@ -73,7 +74,7 @@ Procedure:
 
 ### Output
 <p align="center">
-  <img src="data/cfar_output.png" width="300" height="200" />
+  <img src="data/cfar_output.png" width="500" height="300" />
 </p>
 
 From the CFAR output, it can be seen that the range estimation is same as of that target specification of 100m and the doppler estimation is also approximately same as that of target specification of -20 m/s.
