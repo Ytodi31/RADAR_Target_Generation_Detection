@@ -28,7 +28,7 @@ The transmitted signal is given by :
 The received signal is same as the transmitted signal with a time delay and is given by :
 
 <p align="center">
-<img src="data/received_signal.PNG" width="150" height="80" />
+<img src="data/received_signal.PNG" width="250" height="80" />
 </p>
 
 ### Target Specification
