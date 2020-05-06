@@ -23,12 +23,12 @@ The RADAR system used has the following specifications:
 
 The transmitted signal is given by :
 <p align="center">
-<img src="data/transmitted_signal.PNG" width="150" height="80" />
+<img src="data/transmitted_signal.PNG" width="300" height="80" />
 </p>
 The received signal is same as the transmitted signal with a time delay and is given by :
 
 <p align="center">
-<img src="data/received_signal.PNG" width="250" height="80" />
+<img src="data/received_signal.PNG" width="300" height="80" />
 </p>
 
 ### Target Specification
@@ -74,7 +74,7 @@ Procedure:
 
 ### Output
 <p align="center">
-  <img src="data/cfar_output.png" width="500" height="300" />
+  <img src="data/cfar_output.png" width="600" height="400" />
 </p>
 
 From the CFAR output, it can be seen that the range estimation is same as of that target specification of 100m and the doppler estimation is also approximately same as that of target specification of -20 m/s.
